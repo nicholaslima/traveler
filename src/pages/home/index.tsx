@@ -1,8 +1,9 @@
 import React from "react";
+import { Container } from "./style";
 
 const Home: React.FC = () => {
   return (
-    <>
+    <Container>
       <main>
         <h1>Viva uma grande aventura</h1>
         <p>
@@ -16,28 +17,43 @@ const Home: React.FC = () => {
       <aside>
         <ul>
           <li>
-            <img src="" alt="" />
-            <span className="decription"></span>
+            <div className="img"></div>
+            <div className="description">
+              <p className="title">Florianópolis</p>
+              <span>98 locais</span>
+            </div>
           </li>
           <li>
-            <img src="" alt="" />
-            <span className="decription"></span>
+            <div className="img"></div>
+            <div className="description">
+              <p className="title">Florianópolis</p>
+              <span>98 locais</span>
+            </div>
           </li>
           <li>
-            <img src="" alt="" />
-            <span className="decription"></span>
+            <div className="img"></div>
+            <div className="description">
+              <p className="title">Florianópolis</p>
+              <span>98 locais</span>
+            </div>
           </li>
           <li>
-            <img src="" alt="" />
-            <span className="decription"></span>
+            <div className="img"></div>
+            <div className="description">
+              <p className="title">Florianópolis</p>
+              <span>98 locais</span>
+            </div>
           </li>
           <li>
-            <img src="" alt="" />
-            <span className="decription"></span>
+            <div className="img"></div>
+            <div className="description">
+              <p className="title">Florianópolis</p>
+              <span>98 locais</span>
+            </div>
           </li>
         </ul>
       </aside>
-    </>
+    </Container>
   );
 };
 
