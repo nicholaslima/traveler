@@ -16,41 +16,46 @@ const Home: React.FC = () => {
 
       <aside>
         <ul>
-          <li>
-            <div className="img"></div>
-            <div className="description">
-              <p className="title">Florianópolis</p>
-              <span>98 locais</span>
-            </div>
-          </li>
-          <li>
-            <div className="img"></div>
-            <div className="description">
-              <p className="title">Florianópolis</p>
-              <span>98 locais</span>
-            </div>
-          </li>
-          <li>
-            <div className="img"></div>
-            <div className="description">
-              <p className="title">Florianópolis</p>
-              <span>98 locais</span>
-            </div>
-          </li>
-          <li>
-            <div className="img"></div>
-            <div className="description">
-              <p className="title">Florianópolis</p>
-              <span>98 locais</span>
-            </div>
-          </li>
-          <li>
-            <div className="img"></div>
-            <div className="description">
-              <p className="title">Florianópolis</p>
-              <span>98 locais</span>
-            </div>
-          </li>
+          <div className="column-1">
+            <li>
+              <div className="img"></div>
+              <div className="description">
+                <p className="title">Florianópolis</p>
+                <span>98 locais</span>
+              </div>
+            </li>
+            <li>
+              <div className="img"></div>
+              <div className="description">
+                <p className="title">Florianópolis</p>
+                <span>98 locais</span>
+              </div>
+            </li>
+            <li>
+              <div className="img"></div>
+              <div className="description">
+                <p className="title">Florianópolis</p>
+                <span>98 locais</span>
+              </div>
+            </li>
+          </div>
+
+          <div className="column-2">
+            <li>
+              <div className="img"></div>
+              <div className="description">
+                <p className="title">Florianópolis</p>
+                <span>98 locais</span>
+              </div>
+            </li>
+            <li>
+              <div className="img"></div>
+              <div className="description">
+                <p className="title">Florianópolis</p>
+                <span>98 locais</span>
+              </div>
+            </li>
+          </div>
         </ul>
       </aside>
     </Container>

@@ -9,6 +9,10 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 24px;
 
+    @media (max-width: 950px) {
+      flex-direction: column;
+    }
+
     button {
       border-radius: 10px;
       padding: 11px 32px;
@@ -18,6 +22,9 @@ export const Container = styled.div`
       font-weight: 500;
       border: 0;
       font-size: 1rem;
+      @media (max-width: 950px) {
+        margin-top: 20px;
+      }
     }
   }
 `;
