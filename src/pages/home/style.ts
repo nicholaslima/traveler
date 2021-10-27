@@ -58,6 +58,9 @@ export const Container = styled.div`
       font-weight: 500;
       font-size: 18px;
       border: 0;
+      a {
+        color: var(--white);
+      }
     }
   }
 

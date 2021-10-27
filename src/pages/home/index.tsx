@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "./style";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
@@ -11,7 +12,9 @@ const Home: React.FC = () => {
           Santa Catarina.
         </p>
 
-        <button>Descobrir todos os lugares</button>
+        <Link to="/search">
+          <button>Descobrir todos os lugares</button>
+        </Link>
       </main>
 
       <aside>

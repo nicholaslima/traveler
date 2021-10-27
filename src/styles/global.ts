@@ -20,6 +20,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  a{
+    text-decoration: none;
+  }
+
+
   body{
     background-color: var(--white-blue);
   }
