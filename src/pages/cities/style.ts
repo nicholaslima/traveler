@@ -59,10 +59,10 @@ export const Container = styled.div`
   ul {
     display: grid;
     grid-column-gap: 34px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 24% 24% 24% 24%;
     margin-top: 40px;
 
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
       grid-template-columns: auto auto auto;
     }
     @media (max-width: 750px) {

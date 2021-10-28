@@ -1,19 +1,19 @@
 import React from "react";
-import { Container } from "./style";
+import { Container, ImageCity } from "./style";
 
-interface Citytype {
-  img: string;
+export interface Citytype {
+  image: string;
   name: string;
-  NumberPlaces: number;
+  numberPlaces: number;
 }
 
-const City: React.FC<Citytype> = ({ name, img, NumberPlaces }) => {
+const City: React.FC<Citytype> = ({ name, image, numberPlaces }) => {
   return (
     <Container>
-      <div className="img"></div>
+      <ImageCity img={image}></ImageCity>
       <div className="description">
-        <p className="title">Florianópolis</p>
-        <span>98 locais</span>
+        <p className="title">{name}</p>
+        <span>{numberPlaces} locais</span>
       </div>
     </Container>
   );
