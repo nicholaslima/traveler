@@ -1,26 +1,31 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.li`
   width: 100%;
   height: 306px;
   border-radius: 20px;
   margin-bottom: 32px;
   border: 1px solid var(--gray-transparent);
-
+  list-style: none;
   .description {
     padding: 25px 27px;
     .title {
       font-family: Barlow;
       font-weight: 600;
       color: var(--dark-blue);
-      font-size: 22.8226px;
+      font-size: 22px;
       line-height: 23px;
       margin-bottom: 7px;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
     }
     span {
       font-family: Roboto;
       font-size: 15.2151px;
       line-height: 25px;
+      width: 100%;
       color: var(--gray);
     }
   }

@@ -24,7 +24,7 @@ export const Container = styled.div`
     }
     .search {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       width: 30%;
       font-family: Roboto;
@@ -63,13 +63,10 @@ export const Container = styled.div`
     margin-top: 40px;
 
     @media (max-width: 1000px) {
-      grid-template-columns: auto auto auto;
+      grid-template-columns: 30% 30% 30%;
     }
     @media (max-width: 750px) {
-      grid-template-columns: auto auto;
-    }
-    li {
-      list-style: none;
+      grid-template-columns: 45% 45%;
     }
   }
 `;
