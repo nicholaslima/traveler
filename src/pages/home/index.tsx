@@ -1,11 +1,12 @@
 import React from "react";
 import { Container } from "./style";
 import { Link } from "react-router-dom";
-import { Header } from "../../components/header";
+import { HeaderLogged } from "../../components/headerLogged";
 
 const Home: React.FC = () => {
   return (
     <>
+      <HeaderLogged></HeaderLogged>
       <Container>
         <main>
           <h1>Viva uma grande aventura</h1>
