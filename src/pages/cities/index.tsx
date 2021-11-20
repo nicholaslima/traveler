@@ -1,20 +1,29 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { City } from "../../components/City";
-import { Container } from "./style";
+import { Container, SearchButton } from "./style";
 import { connection } from "../../services/api";
 import { Header } from "../../components/header";
 import { Citytype } from "../../components/City";
 
 const Cities: React.FC = () => {
   const [cities, setCity] = useState<Citytype[]>([] as Citytype[]);
+  const [typeSearch, setTypeSearch] = useState("all");
 
-  useEffect(() => {
+  const allCitiesSearch = useCallback(() => {
     connection.get("/cities").then((response) => {
       const { cities } = response.data;
 
       setCity(cities);
     });
+
+    setTypeSearch("all");
   }, []);
+
+  useEffect(() => {
+    if (typeSearch === "all") {
+      allCitiesSearch();
+    }
+  }, [allCitiesSearch, typeSearch]);
 
   const searchCity = useCallback(
     (name) => {
@@ -31,6 +40,24 @@ const Cities: React.FC = () => {
     [setCity]
   );
 
+  const mostAccessed = useCallback(() => {
+    let NumberMostAcessed: number = 0;
+
+    cities.forEach((city) => {
+      if (NumberMostAcessed < city.visits) {
+        NumberMostAcessed = city.visits;
+      }
+    });
+
+    let citiesMostAcessed: Citytype[] = cities.filter(
+      (city) => city.visits === NumberMostAcessed
+    );
+
+    setTypeSearch("mostAccessed");
+
+    setCity(citiesMostAcessed);
+  }, [cities, setCity]);
+
   return (
     <>
       <Header searchCity={searchCity}></Header>
@@ -38,12 +65,21 @@ const Cities: React.FC = () => {
         <div className="search-container">
           <h1>Selecione uma cidade</h1>
           <div className="search">
-            <p className="title-search active">Todas</p>
-            <p className="title-search">Mais acessadas</p>
+            <SearchButton
+              active={typeSearch === "all"}
+              onClick={() => setTypeSearch("all")}
+            >
+              Todas
+            </SearchButton>
+            <SearchButton
+              active={typeSearch === "mostAccessed"}
+              onClick={mostAccessed}
+            >
+              Mais acessadas
+            </SearchButton>
             <select name="letter" id="">
               <option value="">A - Z</option>
-              <option value=""></option>
-              <option value=""></option>
+              <option value="a">a</option>
             </select>
           </div>
         </div>
@@ -52,6 +88,7 @@ const Cities: React.FC = () => {
             <City
               key={index}
               name={city.name}
+              visits={city.visits}
               numberPlaces={city.numberPlaces}
               image={city.image}
             ></City>

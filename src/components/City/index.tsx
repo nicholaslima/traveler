@@ -5,9 +5,10 @@ export interface Citytype {
   image: string;
   name: string;
   numberPlaces: number;
+  visits: number;
 }
 
-const City: React.FC<Citytype> = ({ name, image, numberPlaces }) => {
+const City: React.FC<Citytype> = ({ visits, name, image, numberPlaces }) => {
   return (
     <Container>
       <ImageCity img={image}></ImageCity>

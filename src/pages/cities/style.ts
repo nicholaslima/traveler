@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-width: 1080px;
@@ -27,32 +27,11 @@ export const Container = styled.div`
       justify-content: space-between;
       align-items: center;
       width: 30%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      color: var(--gray-light);
-      font-size: 16px;
-      line-height: 26px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--gray-transparent);
       box-sizing: padding-box;
       @media (max-width: 950px) {
         width: 70%;
-      }
-      .active {
-        color: var(--dark-blue);
-        position: relative;
-        &:after {
-          content: "";
-          height: 2px;
-          border-radius: 10px;
-          left: 0;
-          width: 100%;
-          margin-top: 10px;
-          position: absolute;
-          bottom: -10px;
-          background: var(--orange);
-        }
       }
     }
   }
@@ -69,4 +48,35 @@ export const Container = styled.div`
       grid-template-columns: 45% 45%;
     }
   }
+`;
+
+interface propsSearch {
+  active: boolean;
+}
+
+export const SearchButton = styled.p<propsSearch>`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  color: var(--gray-light);
+  font-size: 16px;
+  line-height: 26px;
+  cursor: pointer;
+  ${(props) =>
+    props.active &&
+    css`
+      color: var(--dark-blue);
+      position: relative;
+      &:after {
+        content: "";
+        height: 2px;
+        border-radius: 10px;
+        left: 0;
+        width: 100%;
+        margin-top: 10px;
+        position: absolute;
+        bottom: -10px;
+        background: var(--orange);
+      }
+    `}
 `;
