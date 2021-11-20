@@ -80,3 +80,30 @@ export const SearchButton = styled.p<propsSearch>`
       }
     `}
 `;
+
+export const NoContent = styled.div`
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  svg {
+    height: 80px;
+    width: 80px;
+    color: var(--yellow);
+  }
+
+  p {
+    font-family: Heebo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    color: var(--gray);
+    width: 244px;
+    text-align: center;
+    margin-top: 35px;
+  }
+`;

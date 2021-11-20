@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { BsEmojiFrownFill } from "react-icons/bs";
 import { City } from "../../components/City";
-import { Container, SearchButton } from "./style";
+import { Container, SearchButton, NoContent } from "./style";
 import { connection } from "../../services/api";
 import { Header } from "../../components/header";
 import { Citytype } from "../../components/City";
@@ -61,40 +62,46 @@ const Cities: React.FC = () => {
   return (
     <>
       <Header searchCity={searchCity}></Header>
-      <Container>
-        <div className="search-container">
-          <h1>Selecione uma cidade</h1>
-          <div className="search">
-            <SearchButton
-              active={typeSearch === "all"}
-              onClick={() => setTypeSearch("all")}
-            >
-              Todas
-            </SearchButton>
-            <SearchButton
-              active={typeSearch === "mostAccessed"}
-              onClick={mostAccessed}
-            >
-              Mais acessadas
-            </SearchButton>
-            <select name="letter" id="">
-              <option value="">A - Z</option>
-              <option value="a">a</option>
-            </select>
+      {cities.length ? (
+        <Container>
+          <div className="search-container">
+            <h1>Selecione uma cidade</h1>
+            <div className="search">
+              <SearchButton
+                active={typeSearch === "all"}
+                onClick={() => setTypeSearch("all")}
+              >
+                Todas
+              </SearchButton>
+              <SearchButton
+                active={typeSearch === "mostAccessed"}
+                onClick={mostAccessed}
+              >
+                Mais acessadas
+              </SearchButton>
+              <select name="letter" id="">
+                <option value="">A - Z</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <ul>
-          {cities.map((city, index) => (
-            <City
-              key={index}
-              name={city.name}
-              visits={city.visits}
-              numberPlaces={city.numberPlaces}
-              image={city.image}
-            ></City>
-          ))}
-        </ul>
-      </Container>
+          <ul>
+            {cities.map((city, index) => (
+              <City
+                key={index}
+                name={city.name}
+                visits={city.visits}
+                numberPlaces={city.numberPlaces}
+                image={city.image}
+              ></City>
+            ))}
+          </ul>
+        </Container>
+      ) : (
+        <NoContent>
+          <BsEmojiFrownFill></BsEmojiFrownFill>
+          <p>Sem resultados. Tente uma nova busca</p>
+        </NoContent>
+      )}
     </>
   );
 };
