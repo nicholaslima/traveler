@@ -1,12 +1,24 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.li`
+interface ContainerProps {
+  isActive: boolean;
+}
+export const Container = styled.li<ContainerProps>`
   width: 100%;
   height: 306px;
   border-radius: 20px;
   margin-bottom: 32px;
   border: 1px solid var(--gray-transparent);
   list-style: none;
+
+  ${(props) =>
+    props.isActive === false
+      ? css`
+          filter: opacity(50%);
+        `
+      : css`
+          filter: opacity(100%);
+        `}
   .description {
     padding: 25px 27px;
     .title {

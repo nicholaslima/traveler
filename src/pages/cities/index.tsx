@@ -28,17 +28,25 @@ const Cities: React.FC = () => {
 
   const searchCity = useCallback(
     (name) => {
-      connection.get(`/cities/${name}`).then((response) => {
-        if (name) {
-          const newCities = response.data;
-          setCity([...newCities]);
-        } else {
-          const { cities } = response.data;
-          setCity([...cities]);
+      const length = name.split("").length;
+
+      const citiesFounded = cities.filter((city) => {
+        if (city.name.slice(0, length) === name) {
+          city.founded = true;
+          return city;
         }
       });
+
+      const citiesRest = cities.filter((city) => {
+        if (city.name.slice(0, length) !== name) {
+          city.founded = false;
+          return city;
+        }
+      });
+
+      setCity([...citiesFounded, ...citiesRest]);
     },
-    [setCity]
+    [setCity, cities]
   );
 
   const mostAccessed = useCallback(() => {
@@ -58,6 +66,7 @@ const Cities: React.FC = () => {
 
     setCity(citiesMostAcessed);
   }, [cities, setCity]);
+  console.log(cities);
 
   return (
     <>
@@ -89,6 +98,7 @@ const Cities: React.FC = () => {
               <City
                 key={index}
                 name={city.name}
+                active={city.founded}
                 visits={city.visits}
                 numberPlaces={city.numberPlaces}
                 image={city.image}

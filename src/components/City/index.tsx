@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, ImageCity } from "./style";
 
 export interface Citytype {
   image: string;
   name: string;
   numberPlaces: number;
+  founded: boolean;
   visits: number;
 }
 
-const City: React.FC<Citytype> = ({ visits, name, image, numberPlaces }) => {
+interface cityProps {
+  image: string;
+  name: string;
+  numberPlaces: number;
+  active: boolean;
+  visits: number;
+}
+
+const City: React.FC<cityProps> = ({
+  visits,
+  active,
+  name,
+  image,
+  numberPlaces,
+}) => {
+  console.log(active);
   return (
-    <Container>
+    <Container isActive={active}>
       <ImageCity img={image}></ImageCity>
       <div className="description">
         <p className="title">{name}</p>
