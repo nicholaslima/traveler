@@ -10,6 +10,7 @@ export const Container = styled.li<ContainerProps>`
   margin-bottom: 32px;
   border: 1px solid var(--gray-transparent);
   list-style: none;
+  cursor: pointer;
 
   ${(props) =>
     props.isActive === false

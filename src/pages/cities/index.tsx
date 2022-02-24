@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { BsEmojiFrownFill } from "react-icons/bs";
-import { City } from "../../components/City";
+import { CityItem } from "../../components/CityItem";
 import { Container, SearchButton, NoContent } from "./style";
 import { connection } from "../../services/api";
 import { Header } from "../../components/header";
-import { Citytype } from "../../components/City";
+import { Citytype } from "../../components/CityItem";
 
 const Cities: React.FC = () => {
   const [cities, setCity] = useState<Citytype[]>([] as Citytype[]);
@@ -95,14 +95,13 @@ const Cities: React.FC = () => {
           </div>
           <ul>
             {cities.map((city, index) => (
-              <City
+              <CityItem
                 key={index}
                 name={city.name}
                 active={city.founded}
-                visits={city.visits}
                 numberPlaces={city.numberPlaces}
                 image={city.image}
-              ></City>
+              ></CityItem>
             ))}
           </ul>
         </Container>

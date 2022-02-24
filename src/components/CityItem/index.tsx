@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, ImageCity } from "./style";
+import { useHistory } from "react-router-dom";
 
 export interface Citytype {
   image: string;
@@ -14,19 +15,17 @@ interface cityProps {
   name: string;
   numberPlaces: number;
   active: boolean;
-  visits: number;
 }
 
-const City: React.FC<cityProps> = ({
-  visits,
+const CityItem: React.FC<cityProps> = ({
   active,
   name,
   image,
   numberPlaces,
 }) => {
-  console.log(active);
+  const { push } = useHistory();
   return (
-    <Container isActive={active}>
+    <Container isActive={active} onClick={() => push(`city/${name}`)}>
       <ImageCity img={image}></ImageCity>
       <div className="description">
         <p className="title">{name}</p>
@@ -36,4 +35,4 @@ const City: React.FC<cityProps> = ({
   );
 };
 
-export { City };
+export { CityItem };
